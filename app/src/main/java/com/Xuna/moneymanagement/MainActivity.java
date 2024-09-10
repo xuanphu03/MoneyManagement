@@ -9,8 +9,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,35 +22,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        //Create array
-        ArrayList<String> arrayName = new ArrayList<>();
+        ThongBao("1");
+        ThongBao("2");
+        ThongBao("3");
+        ThongBao("4");
+    }
 
-        //Add element
-        arrayName.add("Java");
-        arrayName.add("JavaScript");
-        arrayName.add("TypeScript");
-
-        //Get length
-        Log.d("Xuna", "SIZE:" + arrayName.size());
-
-        //Get element
-        Log.d("Xuna", "ELEMENT:" + arrayName.get(1));
-
-        //Remove
-        arrayName.remove(1);
-
-        //Get length
-        Log.d("Xuna", "SIZE:" + arrayName.size());
-
-        //Get element
-        Log.d("Xuna", "ELEMENT:" + arrayName.get(1));
-
-        arrayName.add("Python");
-        arrayName.add("C++");
-
-        //Same forEach
-        for (String ten : arrayName) {
-            Log.d("Xuna", ten);
-        }
+    private void ThongBao(String index) {
+        Log.d("Xuna", index);
     }
 }
