@@ -2,33 +2,35 @@ package com.Xuna.moneymanagement;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText usernameInput;
+    private EditText passwordInput;
+    private Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        usernameInput = findViewById(R.id.username_input);
+        passwordInput = findViewById(R.id.password_input);
+        loginButton = findViewById(R.id.login_btn);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = String.valueOf(usernameInput.getText());
+                String password = String.valueOf(passwordInput.getText());
+                Log.d("Xuna Log", "Your account\n" + "Username: " + username +"\nPassword: "+ password);
+            };
         });
-
-        ThongBao("1");
-        ThongBao("2");
-        ThongBao("3");
-        ThongBao("4");
-    }
-
-    private void ThongBao(String index) {
-        Log.d("Xuna", index);
     }
 }
